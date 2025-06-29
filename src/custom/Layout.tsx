@@ -7,7 +7,7 @@ import CheckUser from "./CheckUser";
 import useUserStore from "../store/user";
 
 const Layout: React.FC = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const { userData } = useUserStore();
 
