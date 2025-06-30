@@ -1,6 +1,7 @@
 import { Button } from "../../components/ui/button";
 import { deleteUser } from "../../api/endpoints/user";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 const Delete: React.FC<{ id: string }> = ({ id }) => {
   const mutation = useMutation({
@@ -9,7 +10,11 @@ const Delete: React.FC<{ id: string }> = ({ id }) => {
 
   const handleDelete = () => {
     if (id) {
-      mutation.mutate(id, { onSuccess: () => window.location.reload() });
+      mutation.mutate(id, {
+        onSuccess: () => window.location.reload(),
+        onError: (error: any) =>
+          toast.error(error?.response?.data?.message || "Xatolik yuz berdi"),
+      });
     }
   };
 

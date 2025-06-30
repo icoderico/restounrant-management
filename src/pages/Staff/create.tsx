@@ -24,6 +24,7 @@ import Cleave from "cleave.js/react";
 import useUserStore from "../../store/user";
 import { useMutation } from "@tanstack/react-query";
 import { createUser } from "../../api/endpoints/user";
+import { toast } from "react-toastify";
 
 const formSchema = z.object({
   name: z.string().min(1, "Ism majburiy"),
@@ -61,7 +62,11 @@ const Create: React.FC = () => {
       restaurantId: userData.restaurantId,
     };
 
-    mutation.mutate(payload);
+    mutation.mutate(payload, {
+      onSuccess: () => window.location.reload(),
+      onError: (error: any) =>
+        toast.error(error?.response?.data?.message || "Xatolik yuz berdi"),
+    });
   };
 
   return (
