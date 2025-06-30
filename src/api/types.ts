@@ -10,7 +10,7 @@ export interface LoginResponse {
 
 export interface UserResponse {
   id: string;
-  role: "OWNER" | "CACHEIR" | "WAITER";
+  role: "OWNER" | "CASHER" | "WAITER";
   phone: string;
   name: string;
   password: string;
@@ -19,3 +19,5 @@ export interface UserResponse {
   updatedAt: string;
   balance: number;
 }
+
+export interface UserRequest extends UserResponse {}

@@ -23,7 +23,7 @@ const sidebarRoutes: SidebarRouteTypes[] = [
   {
     label: "Xodimlar",
     icon: <Icons.Users />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/staff"} />,
     role: ["OWNER"],
   },
   {

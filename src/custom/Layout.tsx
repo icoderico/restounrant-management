@@ -42,12 +42,8 @@ const Layout: React.FC = () => {
           <h1 className="text-xl font-bold text-gray-800">{userData?.name}</h1>
         </header>
 
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-2">
           <Outlet />
-          <footer className="mt-10 border-t pt-4 text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Shuhrat's Project. All rights
-            reserved.
-          </footer>
         </main>
       </div>
     </div>
