@@ -22,7 +22,7 @@ const Layout: React.FC = () => {
     ${!isDesktop ? (isSidebarOpen ? "translate-x-0" : "-translate-x-full") : ""}
   `}
       >
-        <Sidebar />
+        <Sidebar setIsSidebarOpen={setIsSidebarOpen} />
       </aside>
 
       {!isDesktop && isSidebarOpen && (

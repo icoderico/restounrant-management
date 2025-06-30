@@ -4,6 +4,7 @@ import React from "react";
 import meenuLogo from "../assets/logo.png";
 import useUserStore from "../store/user";
 import { Skeleton } from "../components/ui/skeleton";
+import { useMediaQuery } from "react-responsive";
 
 interface SidebarItem {
   label: string;
@@ -92,8 +93,11 @@ const SidebarItem: React.FC<SidebarItem> = ({ label, icon, container }) => {
   return React.cloneElement(resultContainer, {}, containerChildren);
 };
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<{
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setIsSidebarOpen }) => {
   const { userData } = useUserStore();
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   return (
     <div className="w-full p-3 ">
@@ -102,14 +106,18 @@ const Sidebar: React.FC = () => {
         {userData ? (
           <div className="flex flex-col gap-2">
             {sidebarRoutes
-              .filter((route) => route.role.includes(userData?.role)) // 👈 Role bo'yicha filter
+              .filter((route) => route.role.includes(userData?.role))
               .map((route, index) => (
-                <SidebarItem
-                  key={index}
-                  label={route.label}
-                  icon={route.icon}
-                  container={route.container}
-                />
+                <div
+                  onClick={() => (!isDesktop ? setIsSidebarOpen(false) : null)}
+                >
+                  <SidebarItem
+                    key={index}
+                    label={route.label}
+                    icon={route.icon}
+                    container={route.container}
+                  />
+                </div>
               ))}
           </div>
         ) : (
