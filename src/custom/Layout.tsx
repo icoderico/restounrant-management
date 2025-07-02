@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useMediaQuery } from "react-responsive";
 import { Icons } from "../assets/incons";
@@ -16,13 +16,20 @@ const Layout: React.FC = () => {
       <CheckUser />
       <aside
         className={`
-    ${isDesktop ? "static" : "absolute z-40"}
+    ${isDesktop ? "relative" : "absolute z-40"}
     top-0 left-0 h-screen w-[260px] bg-second border-r shadow-md transition-transform duration-300
     ${isDesktop ? (isSidebarOpen ? "block" : "hidden") : ""}
     ${!isDesktop ? (isSidebarOpen ? "translate-x-0" : "-translate-x-full") : ""}
   `}
       >
         <Sidebar setIsSidebarOpen={setIsSidebarOpen} />
+
+        <NavLink
+          to={"/auth"}
+          className="border bottom-10 absolute border-main w-full inline-block text-center text-main font-semibold p-2"
+        >
+          Chiqish
+        </NavLink>
       </aside>
 
       {!isDesktop && isSidebarOpen && (

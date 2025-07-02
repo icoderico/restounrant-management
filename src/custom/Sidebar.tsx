@@ -94,7 +94,7 @@ const Sidebar: React.FC<{
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
   return (
-    <div className="w-full p-3 ">
+    <div className="w-full p-3 relative">
       <img className="w-1/3 mx-auto" src={meenuLogo} alt="" />
       <div className="flex pt-5 flex-col gap-2">
         {userData ? (
@@ -125,6 +125,8 @@ const Sidebar: React.FC<{
           </div>
         )}
       </div>
+
+      
     </div>
   );
 };
