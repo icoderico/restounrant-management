@@ -11,5 +11,6 @@ export const useLogin = () => {
       window.location.href = "/";
       toast.success("Muvaffaqiyatli kirdingiz");
     },
+    onError: (error: any) => toast.error(error?.response?.data?.message),
   });
 };

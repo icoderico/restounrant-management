@@ -21,3 +21,10 @@ export interface UserResponse {
 }
 
 export interface UserRequest extends UserResponse {}
+
+export interface Food {
+  id: string;
+  name: string;
+  price: number;
+  restaurantId: string;
+}

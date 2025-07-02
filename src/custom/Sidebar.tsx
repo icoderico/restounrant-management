@@ -28,15 +28,9 @@ const sidebarRoutes: SidebarRouteTypes[] = [
     role: ["OWNER"],
   },
   {
-    label: "Taom turlari",
-    icon: <Icons.Utensils />,
-    container: <NavLink to={"/"} />,
-    role: ["OWNER"],
-  },
-  {
     label: "Taomlar boshqaruvi",
     icon: <Icons.Soup />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/foods"} />,
     role: ["OWNER"],
   },
   {
@@ -60,13 +54,13 @@ const sidebarRoutes: SidebarRouteTypes[] = [
   {
     label: "Taomlar",
     icon: <Icons.Apple />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/foods-waiter"} />,
     role: ["WAITER"],
   },
   {
     label: "Buyurtmalar",
     icon: <Icons.HandPlatter />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/myorders"} />,
     role: ["WAITER"],
   },
   {

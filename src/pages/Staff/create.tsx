@@ -73,7 +73,6 @@ const Create: React.FC = () => {
     <div className="bg-white shadow-md p-4 rounded-sm">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          {/* Name */}
           <FormField
             control={form.control}
             name="name"
