@@ -1,6 +1,6 @@
 {
-  "name": "My App",
-  "short_name": "App",
+  "name": "Hisobchi",
+  "short_name": "Hisobchi",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
