@@ -51,12 +51,7 @@ const sidebarRoutes: SidebarRouteTypes[] = [
     container: <NavLink to={"/"} />,
     role: ["OWNER"],
   },
-  {
-    label: "Taomlar",
-    icon: <Icons.Apple />,
-    container: <NavLink to={"/foods-waiter"} />,
-    role: ["WAITER"],
-  },
+
   {
     label: "Buyurtmalar",
     icon: <Icons.HandPlatter />,
@@ -66,13 +61,13 @@ const sidebarRoutes: SidebarRouteTypes[] = [
   {
     label: "Maoshim",
     icon: <Icons.Banknote />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/mybalance"} />,
     role: ["WAITER"],
   },
   {
     label: "Buyurtmalar",
     icon: <Icons.ListOrdered />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/orders-cashier"} />,
     role: ["CASHER"],
   },
 ];
@@ -125,8 +120,6 @@ const Sidebar: React.FC<{
           </div>
         )}
       </div>
-
-      
     </div>
   );
 };

@@ -90,3 +90,11 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.chek {
+  --mask:
+    radial-gradient(10.2px at 50% calc(100% - 12px),#000 99%,#0000 101%) calc(50% - 20px) 0/40px 100%,
+    radial-gradient(10.2px at 50% calc(100% + 2px),#0000 99%,#000 101%) 50% calc(100% - 10px)/40px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}

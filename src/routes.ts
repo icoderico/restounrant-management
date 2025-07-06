@@ -1,8 +1,9 @@
 import Home from "./pages/Home";
 import Staff from "./pages/Staff";
 import Foods from "./pages/Foods";
-import FoodsWaiter from "./pages/FoodsWaiter";
 import Orders from "./pages/Orders";
+import MyBalance from "./pages/MyBalance";
+import OrdersCashier from "./pages/OrdersCa";
 
 interface RoutingTypes {
   path: string;
@@ -26,14 +27,21 @@ export const globalRouting: RoutingTypes[] = [
     component: Foods,
     role: ["OWNER"],
   },
-  {
-    path: "/foods-waiter",
-    component: FoodsWaiter,
-    role: ["WAITER"],
-  },
+
   {
     path: "/myorders",
     component: Orders,
     role: ["WAITER"],
+  },
+
+  {
+    path: "/mybalance",
+    component: MyBalance,
+    role: ["WAITER"],
+  },
+  {
+    path: "/orders-cashier",
+    component: OrdersCashier,
+    role: ["CASHER"],
   },
 ];
