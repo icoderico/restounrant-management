@@ -36,21 +36,21 @@ const sidebarRoutes: SidebarRouteTypes[] = [
   {
     label: "Monitoring",
     icon: <Icons.ChartNoAxesCombined />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/monitoring"} />,
     role: ["OWNER", "CASHER"],
   },
   {
     label: "Qarzlar",
     icon: <Icons.Coins />,
-    container: <NavLink to={"/"} />,
+    container: <NavLink to={"/dept"} />,
     role: ["OWNER", "CASHER"],
   },
-  {
-    label: "Tariflar",
-    icon: <Icons.Wallet />,
-    container: <NavLink to={"/"} />,
-    role: ["OWNER"],
-  },
+  // {
+  //   label: "Tariflar",
+  //   icon: <Icons.Wallet />,
+  //   container: <NavLink to={"/"} />,
+  //   role: ["OWNER"],
+  // },
 
   {
     label: "Buyurtmalar",

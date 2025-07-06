@@ -4,6 +4,8 @@ import Foods from "./pages/Foods";
 import Orders from "./pages/Orders";
 import MyBalance from "./pages/MyBalance";
 import OrdersCashier from "./pages/OrdersCa";
+import Dept from "./pages/Dept";
+import Monitoring from "./pages/Monitoring";
 
 interface RoutingTypes {
   path: string;
@@ -43,5 +45,15 @@ export const globalRouting: RoutingTypes[] = [
     path: "/orders-cashier",
     component: OrdersCashier,
     role: ["CASHER"],
+  },
+  {
+    path: "/dept",
+    component: Dept,
+    role: ["CASHER", "OWNER"],
+  },
+  {
+    path: "/monitoring",
+    component: Monitoring,
+    role: ["CASHER", "OWNER"],
   },
 ];
