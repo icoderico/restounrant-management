@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Icons } from "../assets/incons";
 import React from "react";
-import meenuLogo from "../assets/logo.png";
+import meenuLogo from "../assets/hisobchi.png";
 import useUserStore from "../store/user";
 import { Skeleton } from "../components/ui/skeleton";
 import { useMediaQuery } from "react-responsive";
@@ -90,7 +90,7 @@ const Sidebar: React.FC<{
 
   return (
     <div className="w-full p-3 relative">
-      <img className="w-1/3 mx-auto" src={meenuLogo} alt="" />
+      <img className="w-2/3 mx-auto" src={meenuLogo} alt="" />
       <div className="flex pt-5 flex-col gap-2">
         {userData ? (
           <div className="flex flex-col gap-2">

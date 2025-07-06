@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useMediaQuery } from "react-responsive";
@@ -11,34 +11,47 @@ const Layout: React.FC = () => {
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const { userData } = useUserStore();
 
+  useEffect(() => {
+    if (!isDesktop && isSidebarOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isSidebarOpen, isDesktop]);
+
   return (
-    <div className="min-h-screen flex bg-gray-50 relative">
+    <div className="min-h-screen flex bg-gray-50">
       <CheckUser />
+
       <aside
         className={`
-    ${isDesktop ? "relative" : "absolute z-40"}
-    top-0 left-0 h-screen w-[260px] bg-second border-r shadow-md transition-transform duration-300
-    ${isDesktop ? (isSidebarOpen ? "block" : "hidden") : ""}
-    ${!isDesktop ? (isSidebarOpen ? "translate-x-0" : "-translate-x-full") : ""}
-  `}
+          fixed top-0 left-0 h-screen w-[260px] bg-second border-r shadow-md z-40
+          transition-transform duration-300
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          ${isDesktop ? "translate-x-0" : ""}
+        `}
       >
         <Sidebar setIsSidebarOpen={setIsSidebarOpen} />
-
         <NavLink
           to={"/auth"}
-          className="border bottom-10 absolute border-main w-full inline-block text-center text-main font-semibold p-2"
+          className="border bottom-24 absolute  border-main w-[90%] left-[5%] inline-block text-center text-main font-semibold p-2"
         >
           Chiqish
         </NavLink>
       </aside>
 
+      {/* Overlay for mobile */}
       {!isDesktop && isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black opacity-40 z-30"
           onClick={() => setIsSidebarOpen(false)}
         ></div>
       )}
-      <div className="flex-1 flex flex-col">
+
+      {/* Main content */}
+      <div className="flex-1 flex flex-col w-full">
         <header className="flex items-center justify-between bg-white px-4 py-3 shadow-md">
           <button
             className="text-gray-700 focus:outline-none text-2xl"
@@ -49,7 +62,11 @@ const Layout: React.FC = () => {
           <h1 className="text-xl font-bold text-gray-800">{userData?.name}</h1>
         </header>
 
-        <main className="flex-1 p-2">
+        <main
+          className={`flex-1 p-2 transition-all ${
+            isDesktop ? "ml-[260px]" : ""
+          }`}
+        >
           <Outlet />
         </main>
       </div>
